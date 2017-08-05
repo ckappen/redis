@@ -1,0 +1,31 @@
+---
+# tasks file for redis
+
+- name: Install EPEL Repository
+  yum:
+    name: "{{ epel_repo_url }}"
+    state: present
+
+- name: Install Redis Packages
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - "{{ redis_packages }}"
+  tags:
+    - package
+    - redis
+
+- name: Copy the redis configuration file
+  template: src=redis.conf.j2 dest={{ redis_conf_dest }}
+  notify:
+   - restart redis
+
+- name: Start and enable redis
+  systemd:
+    name: redis
+    enabled: yes
+    state: started
+  tags:
+    - service
+    - redis

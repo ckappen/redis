@@ -1,0 +1,12 @@
+---
+- hosts: all
+  gather_facts: false
+  vars:
+    goss:
+      package:
+        redis:
+          installed: true
+      service:
+        redis:
+          enabled: true
+          running: true

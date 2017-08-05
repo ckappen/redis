@@ -1,0 +1,22 @@
+---
+# handlers file for redis
+
+- name: start redis
+  service:
+    name: redis
+    state: started
+
+- name: stop redis
+  service:
+    name: redis
+    state: stopped
+
+- name: restart redis
+  service:
+    name: redis
+    state: restarted
+
+- name: reload redis
+  service:
+    name: redis
+    state: reloaded

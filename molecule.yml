@@ -1,0 +1,14 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+docker:
+  containers:
+    - name: redis-centos-7
+      image: centos
+      image_version: latest
+      command: /lib/systemd/systemd
+      privileged: true
+verifier:
+  name: goss
