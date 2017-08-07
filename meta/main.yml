@@ -1,6 +1,6 @@
 galaxy_info:
   author: Christian Kappen
-  description: your description
+  description: An Ansible Role for installing Redis
   company: your company (optional)
   license: Apache LICENSE-2
 
